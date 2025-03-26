@@ -1,4 +1,5 @@
-const mysql = require("mysql2"); // Use mysql2
+// config/db.js
+const mysql = require("mysql2");
 
 const database = mysql.createConnection({
   host: "localhost",
@@ -13,8 +14,12 @@ const connectDB = () => {
       console.error("Error connecting to MySQL:", err.message);
       return;
     }
-    console.log("Connected to MySQL database");
+    console.log("✅ Connected to MySQL database");
   });
 };
 
-module.exports = { connectDB };
+// Export both
+module.exports = {
+  connectDB,
+  database, 
+};
